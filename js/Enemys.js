@@ -1,22 +1,13 @@
 class Enemy {
-  constructor(context, gameSize, enemyPos, enemyVel, enemySize, enemyPhysics) {
+  constructor(context, gameSize) {
     this.ctx = context
-    this.gameSize = gameSize
-
-    this.enemyVel = { x: 10, y: 2 }
+    this.canvasSize = gameSize
+    this.enemyVel = { x: 5, y: 1 }
     this.enemyPos = { x: 100, y: 100 }
     this.enemySize = { w: 100, h: 100 }
-    this.enemyPhysics = { gravity: .4 }
-    this.enemyImage = 'images/HTML.jpg'
-
-    this.enemyInstance = undefined
-
-
-  }
-
-  createEnemy() {
-    this.enemyInstance = new Image()
-    this.enemyInstance.src = this.enemyImage
+    this.enemyInstance = new Image();
+    this.enemyInstance.src = '../images/Logos/HTML.jpg';
+    // this.enemyInstance.src = `images/Logos/${imageName}.jpg`;
   }
 
   drawEnemy() {
@@ -29,8 +20,6 @@ class Enemy {
     )
   }
 
-  moveEnemy() {
 
 
-  }
 }

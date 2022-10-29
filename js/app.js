@@ -6,7 +6,7 @@ const app = {
   description: 'First Ironhack project',
   ctx: undefined,
   enemys: [],
-  Enemy: undefined,
+  enemy: undefined,
   imageInstance: undefined,
   FPS: 60,
   canvasSize: {
@@ -80,7 +80,14 @@ const app = {
     this.ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h)
     this.enemys = this.enemys.filter(elm => elm.enemyPos.y >= this.window.innerHeight)
   },
+
+  createEnemy() {
+
+    this.enemys.push(new Enemy(this.ctx, this.canvasSize))
+  },
+
   drawAll() {
+
     this.ctx.drawImage(
       this.imageInstance,
       this.developerData.pos.x,
@@ -89,7 +96,10 @@ const app = {
       this.developerData.size.h
     )
 
-
+    console.log(this.enemys[0])
   },
+
+
+
 
 }
