@@ -5,8 +5,7 @@ const app = {
   author: 'David Daganzo y Gonzalo García',
   description: 'First Ironhack project',
   ctx: undefined,
-  enemys: [],
-  enemy: undefined,
+  enemys: undefined,
   imageInstance: undefined,
   FPS: 60,
   canvasSize: {
@@ -18,7 +17,7 @@ const app = {
       y: window.innerHeight - 130,
     },
     size: { w: 100, h: 100 },
-    image: 'images/Developer.png'
+    image: '../images/Developer.png'
   },
 
 
@@ -27,6 +26,7 @@ const app = {
     this.setDimensions()
     this.setContext()
     this.createDeveloper()
+    this.createEnemy()
     this.setEventHandlers()
     this.start()
   },
@@ -78,12 +78,11 @@ const app = {
 
   clearAll() {
     this.ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h)
-    this.enemys = this.enemys.filter(elm => elm.enemyPos.y >= this.window.innerHeight)
+    // this.enemys = this.enemys.filter(elm => elm.enemyPos.y >= this.window.innerHeight)
   },
 
   createEnemy() {
-
-    this.enemys.push(new Enemy(this.ctx, this.canvasSize))
+    this.enemys = new Enemy(this.ctx, this.canvasSize)
   },
 
   drawAll() {
@@ -95,8 +94,9 @@ const app = {
       this.developerData.size.w,
       this.developerData.size.h
     )
+    this.enemys.draw()
 
-    console.log(this.enemys[0])
+
   },
 
 
