@@ -5,6 +5,7 @@ const app = {
   author: 'David Daganzo y Gonzalo García',
   description: 'First Ironhack project',
   ctx: undefined,
+  background: undefined,
   enemyArray: [],
   enemyArray2: [],
   enemyImg: ['Angular', 'Bootstrap', 'CSS', 'GIT', 'Github', 'HTML', 'Ironhack', 'Javascript', 'MongoDB', 'NodeJS', 'React'],
@@ -28,6 +29,7 @@ const app = {
   init() {
     this.setDimensions()
     this.setContext()
+    this.createBackground()
     this.createRandomEnemy()
     this.createDeveloper()
     this.createEnemy()
@@ -108,12 +110,14 @@ const app = {
     this.enemyArray2.push(EnemyHTML);
   },
 
+  createBackground() {
+    this.background = new Background(this.ctx, this.canvasSize)
 
-
-
-
+  },
 
   drawAll() {
+
+    this.background.draw()
 
     this.ctx.drawImage(
       this.imageInstance,
@@ -122,8 +126,6 @@ const app = {
       this.developerData.size.w,
       this.developerData.size.h
     )
-
-
     this.enemyArray[0].draw()
     this.enemyArray[1].draw()
     this.enemyArray[2].draw()
@@ -142,3 +144,5 @@ const app = {
 
 
 }
+
+console.log(this.background)
