@@ -5,8 +5,10 @@ const app = {
   author: 'David Daganzo y Gonzalo García',
   description: 'First Ironhack project',
   ctx: undefined,
-  enemys: [],
-  enemyImg: ['HTML', 'CSS'],
+  enemyArray: [],
+  enemyArray2: [],
+  enemyImg: ['Angular', 'Bootstrap', 'CSS', 'GIT', 'Github', 'HTML', 'Ironhack', 'Javascript', 'MongoDB', 'NodeJS', 'React'],
+  randomEnemy: undefined,
   imageInstance: undefined,
   FPS: 60,
   canvasSize: {
@@ -26,6 +28,7 @@ const app = {
   init() {
     this.setDimensions()
     this.setContext()
+    this.createRandomEnemy()
     this.createDeveloper()
     this.createEnemy()
     this.setEventHandlers()
@@ -70,24 +73,45 @@ const app = {
     }
   },
 
+  createRandomEnemy() {
+    let randomEnemyIndex = Math.floor(Math.random() * this.enemyImg.length)
+    this.randomEnemy = randomEnemyIndex
+  },
+
   start() {
     setInterval(() => {
       this.clearAll()
+      this.moveAll()
       this.drawAll()
     }, 1000 / this.FPS)
   },
 
   clearAll() {
     this.ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h)
-    // this.enemys = this.enemys.filter(elm => elm.enemyPos.y >= this.window.innerHeight)
+    // this.enemyArray = this.enemyArray.filter(elm => elm.enemyPos.y >= this.window.innerHeight)
   },
 
   createEnemy() {
-    let EnemyHTML = new Enemy(this.ctx, this.canvasSize, 200, this.enemyImg[0])
-    this.enemys.push(EnemyHTML);
-    let EnemyCSS = new Enemy(this.ctx, this.canvasSize, 400, this.enemyImg[1])
-    this.enemys.push(EnemyCSS);
+    let EnemyAngular = new Enemy(this.ctx, this.canvasSize, this.enemyImg[0])
+    this.enemyArray.push(EnemyAngular);
+    let EnemyBootstrap = new Enemy(this.ctx, this.canvasSize, this.enemyImg[1])
+    this.enemyArray.push(EnemyBootstrap);
+    let EnemyCSS = new Enemy(this.ctx, this.canvasSize, this.enemyImg[2])
+    this.enemyArray.push(EnemyCSS);
+
+
+    let EnemyGIT = new Enemy(this.ctx, this.canvasSize, this.enemyImg[3])
+    this.enemyArray2.push(EnemyGIT);
+    let EnemyGithub = new Enemy(this.ctx, this.canvasSize, this.enemyImg[4])
+    this.enemyArray2.push(EnemyGithub);
+    let EnemyHTML = new Enemy(this.ctx, this.canvasSize, this.enemyImg[5])
+    this.enemyArray2.push(EnemyHTML);
   },
+
+
+
+
+
 
   drawAll() {
 
@@ -98,13 +122,23 @@ const app = {
       this.developerData.size.w,
       this.developerData.size.h
     )
-    this.enemys[0].draw()
-    this.enemys[1].draw()
 
+
+    this.enemyArray[0].draw()
+    this.enemyArray[1].draw()
+    this.enemyArray[2].draw()
+
+    // if (this.enemyArray[0].enemyPos.y || this.enemyArray[1].enemyPos.y || this.enemyArray[2].enemyPos.y > 200) {
+    //   this.enemyArray[3].draw()
+    //   this.enemyArray[4].draw()
+    //   this.enemyArray[5].draw()
+    // }
 
   },
 
-
+  moveAll() {
+    this.enemyArray.forEach(elm => elm.move())
+  },
 
 
 }

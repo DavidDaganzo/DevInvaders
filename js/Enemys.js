@@ -1,9 +1,9 @@
 class Enemy {
-  constructor(ctx, canvasSize, positionValue, imageName) {
+  constructor(ctx, canvasSize, imageName) {
     this.ctx = ctx
     this.canvasSize = canvasSize
-    // this.enemyVel = { x: 5, y: 1 }
-    this.enemyPos = { x: this.canvasSize.w - positionValue, y: 20 }
+    this.velocity = 0.5
+    this.enemyPos = { x: this.canvasSize.w * Math.random(), y: 20 }
     this.enemySize = { w: 100, h: 100 }
     this.enemyInstance = new Image();
     // this.enemyInstance.src = '../images/Logos/HTML.jpg';
@@ -20,6 +20,9 @@ class Enemy {
     )
   }
 
+  move() {
+    this.enemyPos.y += this.velocity
 
+  }
 
 }
