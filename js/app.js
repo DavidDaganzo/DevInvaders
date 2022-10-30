@@ -5,8 +5,8 @@ const app = {
   author: 'David Daganzo y Gonzalo García',
   description: 'First Ironhack project',
   ctx: undefined,
-  enemys: undefined,
-  enemy: ['HTML', 'CSS'],
+  enemys: [],
+  enemyImg: ['HTML', 'CSS'],
   imageInstance: undefined,
   FPS: 60,
   canvasSize: {
@@ -83,7 +83,10 @@ const app = {
   },
 
   createEnemy() {
-    this.enemys = new Enemy(this.ctx, this.canvasSize, this.enemy[1])
+    let EnemyHTML = new Enemy(this.ctx, this.canvasSize, this.enemyImg[0])
+    this.enemys.push(EnemyHTML);
+    let EnemyCSS = new Enemy(this.ctx, this.canvasSize, this.enemyImg[1])
+    this.enemys.push(EnemyCSS);
   },
 
   drawAll() {
@@ -95,7 +98,8 @@ const app = {
       this.developerData.size.w,
       this.developerData.size.h
     )
-    this.enemys.draw()
+    this.enemys[0].draw()
+    this.enemys[1].draw()
 
 
   },
