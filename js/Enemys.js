@@ -1,9 +1,9 @@
 class Enemy {
-  constructor(ctx, canvasSize, imageName) {
+  constructor(ctx, canvasSize, positionValue, imageName) {
     this.ctx = ctx
     this.canvasSize = canvasSize
     // this.enemyVel = { x: 5, y: 1 }
-    this.enemyPos = { x: this.canvasSize.w / 2 - 50, y: 20 }
+    this.enemyPos = { x: this.canvasSize.w - positionValue, y: 20 }
     this.enemySize = { w: 100, h: 100 }
     this.enemyInstance = new Image();
     // this.enemyInstance.src = '../images/Logos/HTML.jpg';

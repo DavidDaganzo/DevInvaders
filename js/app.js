@@ -83,9 +83,9 @@ const app = {
   },
 
   createEnemy() {
-    let EnemyHTML = new Enemy(this.ctx, this.canvasSize, this.enemyImg[0])
+    let EnemyHTML = new Enemy(this.ctx, this.canvasSize, 200, this.enemyImg[0])
     this.enemys.push(EnemyHTML);
-    let EnemyCSS = new Enemy(this.ctx, this.canvasSize, this.enemyImg[1])
+    let EnemyCSS = new Enemy(this.ctx, this.canvasSize, 400, this.enemyImg[1])
     this.enemys.push(EnemyCSS);
   },
 
