@@ -6,6 +6,7 @@ const app = {
   description: 'First Ironhack project',
   ctx: undefined,
   enemys: undefined,
+  enemy: 'HTML',
   imageInstance: undefined,
   FPS: 60,
   canvasSize: {
@@ -82,7 +83,7 @@ const app = {
   },
 
   createEnemy() {
-    this.enemys = new Enemy(this.ctx, this.canvasSize)
+    this.enemys = new Enemy(this.ctx, this.canvasSize, this.enemy)
   },
 
   drawAll() {
