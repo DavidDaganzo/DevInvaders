@@ -35,7 +35,7 @@ class EnemyController {
   drawEnemies(ctx) {
     this.enemyRows.flat().forEach((enemy) => {
       // enemy.move(this.xVelocity, this.yVelocity);
-      enemy.draw(ctx);
+      Enemy.draw(ctx);
     });
   }
 }
