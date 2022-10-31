@@ -1,5 +1,7 @@
 class Enemy {
-  constructor(PositionX, PositionY, imageNumber) {
+  constructor(ctx, canvasSize, PositionX, PositionY, imageNumber) {
+    this.ctx = ctx
+    this.canvasSize = canvasSize
     this.position = {
       x: PositionX,
       y: PositionY
@@ -10,7 +12,6 @@ class Enemy {
     this.image.src = `../images/Logos/${imageNumber}.jpg`;
   }
 
-
   draw() {
     this.ctx.drawImage(
       this.image,
@@ -19,7 +20,6 @@ class Enemy {
       this.size.w,
       this.size.h
     )
-    console.log(this.image)
   }
 }
 

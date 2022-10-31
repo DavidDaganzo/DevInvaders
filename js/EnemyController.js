@@ -21,7 +21,7 @@ class EnemyController {
       row.forEach((enemyNubmer, enemyIndex) => {
         if (enemyNubmer > 0) {
           this.enemyRows[rowIndex].push(
-            new Enemy(enemyIndex * 55, rowIndex * 55, enemyNubmer)
+            new Enemy(this.ctx, this.canvasSize, enemyIndex * 55, rowIndex * 55, enemyNubmer)
           );
         }
       });
@@ -29,25 +29,13 @@ class EnemyController {
   }
 
   draw() {
-    this.ctx.drawImage(
-      this.image,
-      Enemy.position.x,
-      Enemy.position.y,
-      this.width,
-      this.height);
+    this.drawEnemies(this.ctx)
   }
 
   drawEnemies(ctx) {
     this.enemyRows.flat().forEach((enemy) => {
-      enemy.move(this.xVelocity, this.yVelocity);
+      // enemy.move(this.xVelocity, this.yVelocity);
       enemy.draw(ctx);
     });
   }
-
-
-
-
-
-
-
 }

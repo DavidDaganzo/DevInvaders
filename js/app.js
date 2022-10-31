@@ -2,22 +2,25 @@ const app = {
   appName: 'DevInvaders',
   version: '1.0.0',
   license: undefined,
-  author: 'David Daganzo y Gonzalo García',
+  authors: 'David Daganzo y Gonzalo García',
   description: 'First Ironhack project',
   ctx: undefined,
   background: undefined,
   // createEnemy: undefined,
+  developer: undefined,
   randomEnemy: undefined,
   enemyMap: undefined,
-  developer: undefined,
+  enemyController: undefined,
   enemyController: new EnemyController(
-    canvas
+    this.ctx,
+    this.canvasSize
+
   ),
-  FPS: 60,
-  enemyImg: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+
   canvasSize: {
     w: undefined, h: undefined
   },
+  FPS: 60,
 
 
   init() {
@@ -53,17 +56,15 @@ const app = {
     this.background = new Background(this.ctx, this.canvasSize)
 
     // Create enemys
-    this.createEnemy = new Enemy(this.ctx, this.canvasSize, this.enemyImg[0])
+
+
+    //Create Enemy Controler
+    // this.enemyController = new enemyController(this.ctx, this.canvasSize)
 
 
     //Create Developer
     this.developer = new Developer(this.ctx, this.canvasSize)
   },
-
-
-
-
-
 
   clearAll() {
     this.ctx.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h)
@@ -73,7 +74,7 @@ const app = {
   drawAll() {
     this.background.draw()
     this.developer.draw()
-    this.createEnemy.draw()
+    this.enemyController.draw()
     // this.enemyArray[0].draw()
     // this.enemyArray[1].draw()
     // this.enemyArray[2].draw()
@@ -83,9 +84,5 @@ const app = {
     //   this.enemyArray[4].draw()
     //   this.enemyArray[5].draw()
     // }
-
   },
-
-
-
 }
