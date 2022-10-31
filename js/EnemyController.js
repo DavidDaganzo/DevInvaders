@@ -29,13 +29,12 @@ class EnemyController {
   }
 
   draw() {
-    this.drawEnemies(this.ctx)
+    this.drawEnemies
   }
 
-  drawEnemies(ctx) {
+  drawEnemies() {
     this.enemyRows.flat().forEach((enemy) => {
-      // enemy.move(this.xVelocity, this.yVelocity);
-      Enemy.draw(ctx);
+      Enemy.draw(this.ctx);
     });
   }
 }
