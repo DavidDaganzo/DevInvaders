@@ -10,8 +10,11 @@ const app = {
   randomEnemy: undefined,
   enemyMap: undefined,
   developer: undefined,
+  enemyController: new EnemyController(
+    canvas
+  ),
   FPS: 60,
-  enemyImg: ['Angular', 'Bootstrap', 'CSS', 'GIT', 'Github', 'HTML', 'Ironhack', 'Javascript', 'MongoDB', 'NodeJS', 'React'],
+  enemyImg: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   canvasSize: {
     w: undefined, h: undefined
   },
@@ -86,4 +89,3 @@ const app = {
 
 
 }
-console.log(this.background)
